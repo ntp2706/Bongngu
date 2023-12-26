@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scene 2</title>
+  <style>
+    /* CSS giữ nguyên */
+    body {
+      background-image: url('background.png');
+      background-size: 100% 100%;
+      background-attachment: fixed;
+    }
+    #Bong {
+      border-radius: 50%;
+      position: absolute;
+      animation: flyAnimation 2s forwards; /* Sử dụng animation flyAnimation trong 2 giây */
+    }
+
+    @keyframes flyAnimation {
+        0% {
+        transform: translate(-150, -150) scale(1); /* Bắt đầu từ vị trí ban đầu với kích thước 1x */
+      }
+      90% {
+        transform: translate(720px, 370px) scale(1); /* Di chuyển đến vị trí mới với kích thước không đổi */
+      }
+      100% {
+        transform: translate(720px, 370px) scale(0.5); /* Khi đến điểm cuối, thu nhỏ hình ảnh */
+      }
+    }
+    /* Thêm CSS cho popup */
+    .popup {
+      display: none;
+      position: absolute;
+      background-color: white;
+      padding: 10px 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      top: calc(50% - 0px); /* Đặt popup ngay trên hình ảnh (150px/2 = 75px) */
+     left: calc(50% - 0px); /* Đặt popup ngay trên hình ảnh (150px/2 = 75px) */
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="object" id="object1">
+      <img id="Bong" src="Bong.jpg" width="150px" height="150px">
+      <!-- Thêm popup vào sau hình ảnh -->
+      <div class="popup" id="myPopup">
+        <p>ứ ứ ứ</p>
+      </div>
+    </div>
+  </div>
+  <!-- Thêm JavaScript -->
+  <script>
+    const bong = document.getElementById('Bong');
+    const popup = document.getElementById('myPopup');
+
+    bong.addEventListener('animationend', () => {
+      popup.style.display = 'block'; // Hiển thị popup khi animation kết thúc
+    });
+    // setTimeout(() => {
+    //     window.location.href = 'scene-3.html';
+    //   }, 4000);
+  </script>
+</body>
+</html>

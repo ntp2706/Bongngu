@@ -18,7 +18,6 @@
     }
     #Muc{
         border-radius: 50%;
-        transition: all 3s ease;
     }
     #BaoNgoc{
         margin-top: 100px;
@@ -28,6 +27,12 @@
         opacity: 0;
         margin-top: 100px;
         margin-left: -70px;
+    }
+    #ThanhPhat{
+      opacity: 0;
+      margin-top: 250px;;
+      margin-left: 250px;
+      border-radius: 50%;
     }
   </style>
 </head>
@@ -42,11 +47,13 @@
   </div>
   <img src="BaoNgoc.jpg" id="BaoNgoc" width="150px" height="150px">
   <img src="Blood.png" id="blood" width="150px" height="150px">
+  <img src="ThanhPhat.jpg" id="ThanhPhat" width="150px" height="150px">
   <script>
     const container = document.getElementById('container');
     const object1 = document.getElementById('object1');
     const object2 = document.getElementById('object2');
-
+    const bld = document.getElementById('blood');
+    const tp = document.getElementById('ThanhPhat');
     const radius = 250; // Bán kính hình tròn
     let angle1 = 0;
     let angle2 = Math.PI;
@@ -78,17 +85,37 @@
       moveMuc();
     }, 10000);
 
+    
     moveObjects();
     function moveMuc(){
         object2.animate({
             'left': -10+ 'px'
-        },2000)
+        },1000)
         setTimeout(() => {
             object2.style.left = '0px';
             object2.style.top = '210px';
-            var bld = document.getElementById('blood');
             bld.style.opacity = '1';
-    }, 2000);
+            setTimeout(() => {
+              appear();
+      }, 1000);
+    }, 1000);
+    }
+    function appear(){
+      tp.style.opacity = '1';
+      bld.style.opacity = '0';
+      object2.style.opacity = '0';
+      setTimeout(() => {
+        kick();
+      }, 1000);
+    }
+    function kick(){
+      object1.animate({
+            'left': 1386+ 'px',
+            'top': -500+ 'px'
+        },1000)
+      setTimeout(() => {
+        window.location.href = 'scene-2.html';
+      }, 1000);
     }
   </script>
 </body>
