@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Giới thiệu nhân vật</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+    }
+    .character {
+      width: 200px;
+      text-align: center;
+      margin: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .character img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="character" id="character1">
+    <h2>Bảo Ngọc</h2>
+    <img src="BaoNgoc.jpg" alt="Bảo Ngọc">
+    <p>Dễ thương</p>
+  </div>
+  <div class="character" id="character2">
+    <h2>Bóng</h2>
+    <img src="Bong.jpg" alt="Bóng">
+    <p>Ngu</p>
+  </div>
+  <div class="character" id="character3">
+    <h2>Mực</h2>
+    <img src="Muc.jpg" alt="Mực">
+    <p>Lùn</p>
+  </div>
+  <div class="character" id="character4">
+    <h2>Thành Phát</h2>
+    <img src="ThanhPhat.jpg" alt="Thành Phát">
+    <p>Đẹp trai</p>
+  </div>
+</body>
+</html>
+<script>
+    setTimeout(() => {
+        window.location.href='scene-1.html';
+        }, 5000); // Chờ 2 giây trước khi cuộn trang xuống
+  </script>

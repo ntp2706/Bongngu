@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scene 1</title>
+  <style>
+    #container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 140px;
+    position: relative;
+    }
+    .object {
+      position: absolute;
+    }
+    #Bong{
+        border-radius: 50%;
+    }
+    #Muc{
+        border-radius: 50%;
+        transition: all 3s ease;
+    }
+    #BaoNgoc{
+        margin-top: 100px;
+        border-radius: 50%;
+    }
+    #blood{
+        opacity: 0;
+        margin-top: 100px;
+        margin-left: -70px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="object" id="object1">
+        <img id="Bong" src="Bong.jpg" width="150px" height="150px">
+    </div>
+    <div class="object" id="object2">
+        <img id="Muc" src="Muc.jpg" width="150px" height="150px">
+    </div>
+  </div>
+  <img src="BaoNgoc.jpg" id="BaoNgoc" width="150px" height="150px">
+  <img src="Blood.png" id="blood" width="150px" height="150px">
+  <script>
+    const container = document.getElementById('container');
+    const object1 = document.getElementById('object1');
+    const object2 = document.getElementById('object2');
+
+    const radius = 250; // Bán kính hình tròn
+    let angle1 = 0;
+    let angle2 = Math.PI;
+
+    function moveObjects() {
+      const centerX = container.offsetWidth / 2;
+      const centerY = container.offsetHeight / 2;
+
+      const x1 = centerX + radius * Math.cos(angle1);
+      const y1 = centerY + radius * Math.sin(angle1);
+      const x2 = centerX + radius * Math.cos(angle2);
+      const y2 = centerY + radius * Math.sin(angle2);
+
+      object1.style.left = x1 + 'px';
+      object1.style.top = y1 + 'px';
+      object2.style.left = x2 + 'px';
+      object2.style.top = y2 + 'px';
+
+      angle1 += 0.025; // Tốc độ chuyển động của vật thể 1
+      angle2 += 0.03; // Tốc độ chuyển động của vật thể 2
+
+      if (performance.now() < 10000) {
+        requestAnimationFrame(moveObjects);
+      }
+    }
+
+    setTimeout(() => {
+      cancelAnimationFrame(requestAnimationFrame(moveObjects));
+      moveMuc();
+    }, 10000);
+
+    moveObjects();
+    function moveMuc(){
+        object2.animate({
+            'left': -10+ 'px'
+        },2000)
+        setTimeout(() => {
+            object2.style.left = '0px';
+            object2.style.top = '210px';
+            var bld = document.getElementById('blood');
+            bld.style.opacity = '1';
+    }, 2000);
+    }
+  </script>
+</body>
+</html>
